@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { User, LogIn } from 'lucide-react';
@@ -8,14 +8,19 @@ function Login() {
   const auth = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const redirectPath = location.state?.path || '/dashboard';
+  const redirectPath = location.state?.path || '/';
+
+  console.log("location from login",location);
+  console.log("redirectPath variable contains:",redirectPath);
 
   const handleLogin = () => {
     if (!name.trim()) return;
     auth.login(name);
     navigate(redirectPath, { replace: true });
   };
-
+  useEffect(()=>{
+    console.log("Obsserved auth.user change:",auth.user);
+  })
   return (
     <div className="login-container">
       <div className="login-card">
