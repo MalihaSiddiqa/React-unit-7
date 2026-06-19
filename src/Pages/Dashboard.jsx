@@ -1,4 +1,5 @@
 import { useAuth } from '../context/AuthContext';
+import { useLocation } from 'react-router-dom';
 import { User, LogOut } from 'lucide-react';
 
 function Dashboard() {

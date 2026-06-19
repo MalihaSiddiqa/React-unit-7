@@ -13,7 +13,8 @@ function Login() {
   console.log("location from login",location);
   console.log("redirectPath variable contains:",redirectPath);
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    if (e)e.preventDefault();
     if (!name.trim()) return;
     auth.login(name);
     navigate(redirectPath, { replace: true });
@@ -25,6 +26,7 @@ function Login() {
     <div className="login-container">
       <div className="login-card">
         <h1>Welcome Back</h1>
+        <form onSubmit={handleLogin}>
         <div className="input-group">
           <User size={18} />
           <input
@@ -38,6 +40,7 @@ function Login() {
         <button onClick={handleLogin} className="signin-btn">
           <LogIn size={18} /> Sign In
         </button>
+        </form>
       </div>
     </div>
   );

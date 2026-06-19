@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from 'react-router-dom';
-import { Home, LayoutDashboard, LogOut, User,LogIn } from 'lucide-react';
+import { Home, LayoutDashboard, LogOut, User,LogIn} from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 function Navbar() {
