@@ -6,13 +6,19 @@ import { useAuth } from '../context/AuthContext';
 function Navbar() {
   const auth = useAuth();
   const location = useLocation();
-
+  const handleNavbarLogout =()=>{
+    auth.logout();
+  }
   return (
-    <nav className="navbar">
+    <div className="navbar">
+      <nav style={{display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center'
+      }}>
       <div className="nav-left">
         <Link to="/" className="nav-brand">
           <Home size={20} />
-          Auth<br />Demo
+          AuthDemo
         </Link>
         
         <div className="nav-links">
@@ -44,7 +50,8 @@ function Navbar() {
           </Link>
         )}
       </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 
